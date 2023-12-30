@@ -51,6 +51,15 @@ function specialChoice(){
         }
       };
 
+  // Functions to assemble password
+  function additionalChars() {
+    for (let i = 0; i < additionalCharLength; i++){
+      var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
+      console.log(randomChar);
+      return passwordComponents.push(randomChar);
+    }
+  }
+
   // confirm generate password
 if (confirm("Would you like to generate a password?")==true){
   let passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
@@ -69,6 +78,9 @@ if (confirm("Would you like to generate a password?")==true){
   upperCaseChoice();
   numberChoice();
   specialChoice();
+  var additionalCharLength = passwordLength - passwordComponents.length;
+  console.log(additionalCharLength);
+  additionalChars();
   var assembledPassword = passwordComponents.toString();
   alert(assembledPassword);
 }
