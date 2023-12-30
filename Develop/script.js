@@ -55,12 +55,16 @@ function specialChoice(){
 if (confirm("Would you like to generate a password?")==true){
   let passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
   if (passwordLength < 8 || passwordLength > 128){
-    alert("The password must be between 8 and 128 characters. Please restart the password generation process.")
+    alert("The password must be between 8 and 128 characters. Please restart the password generation process.");
+    return null;
   } 
-  else if (typeof(passwordLength) !== "number"){
-    alert("The value entered must be a number. Please restart the password generation process.")
+  else if (isNaN(passwordLength) == true){
+    alert("The value entered must be a number. Please restart the password generation process.");
+    return null;
   }
-  else {alert(passwordLength + " character password requested.")}
+  else {
+    alert(passwordLength + " character password requested.")
+  }
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
