@@ -18,14 +18,12 @@ function generatePassword(){
 function lowerCaseChoice(){
   if (confirm("Should the password include lower case letters?")==true) {
     passwordCharSet.push(lowerCase);
-    var arrayPosition;
-    var arrayLength = lowerCase.length;
-    function getRandomInt(arrayLength) { 
-      arrayPosition = Math.floor(Math.random() * arrayLength)
+    var randomChar = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+      console.log(randomChar)
     }
-    passwordComponents.push(lowerCase[arrayPosition]);
+    return passwordComponents.push(randomChar);
   }
-};
+
 
   // confirm generate password
 if (confirm("Would you like to generate a password?")==true){
@@ -49,7 +47,7 @@ else {
 // error if no to lower, upper, numbers, and special chars --> break and have user restart
 // add additional characters to password --> iterate over loop to add random character from array to passwordComponents
 // iterate over loop to concatenate values from passwordComponents into password and return value; Randomize before concatenating? 
-  };
+};
 
 // Write password to the #password input
 function writePassword() {
