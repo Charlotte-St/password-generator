@@ -22,8 +22,34 @@ function lowerCaseChoice(){
       console.log(randomChar)
     }
     return passwordComponents.push(randomChar);
-  }
+  };
 
+function upperCaseChoice(){
+  if (confirm("Should the password include upper case letters?")==true) {
+    passwordCharSet.push(upperCase);
+    var randomChar = upperCase[Math.floor(Math.random() * upperCase.length)];
+      console.log(randomChar)
+      }
+      return passwordComponents.push(randomChar);
+    };
+
+  function numberChoice(){
+    if (confirm("Should the password include numbers?")==true) {
+      passwordCharSet.push(numberList);
+      var randomChar = numberList[Math.floor(Math.random() * numberList.length)];
+        console.log(randomChar)
+      }
+      return passwordComponents.push(randomChar);
+    };
+
+function specialChoice(){
+    if (confirm("Should the password include numbers?")==true) {
+      passwordCharSet.push(specialChar);
+      var randomChar = specialChar[Math.floor(Math.random() * specialChar.length)];
+        console.log(randomChar)
+        }
+        return passwordComponents.push(randomChar);
+      };
 
   // confirm generate password
 if (confirm("Would you like to generate a password?")==true){
@@ -33,7 +59,11 @@ if (confirm("Would you like to generate a password?")==true){
   } 
   else {alert( passwordLength + " character password requested.")}
   lowerCaseChoice();
-  alert(passwordComponents[0])
+  upperCaseChoice();
+  numberChoice();
+  specialChoice();
+  var assembledPassword = passwordComponents.toString();
+  alert(assembledPassword);
 }
 else {
  alert("You have chosen not to create a password.")
