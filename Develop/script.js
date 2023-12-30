@@ -14,9 +14,16 @@ function generatePassword(){
   var passwordComponents = [];
 
 //Functions to select character types
+
 function lowerCaseChoice(){
   if (confirm("Should the password include lower case letters?")==true) {
     passwordCharSet.push(lowerCase);
+    var arrayPosition;
+    var arrayLength = lowerCase.length;
+    function getRandomInt(arrayLength) { 
+      arrayPosition = Math.floor(Math.random() * arrayLength)
+    }
+    passwordComponents.push(lowerCase[arrayPosition]);
   }
 };
 
@@ -27,6 +34,8 @@ if (confirm("Would you like to generate a password?")==true){
     alert("The password must be between 8 and 128 characters. Please restart the password generation process.")
   } 
   else {alert( passwordLength + " character password requested.")}
+  lowerCaseChoice();
+  alert(passwordComponents[0])
 }
 else {
  alert("You have chosen not to create a password.")
