@@ -20,8 +20,8 @@ function lowerCaseChoice(){
     passwordCharSet.push(lowerCase);
     var randomChar = lowerCase[Math.floor(Math.random() * lowerCase.length)];
       console.log(randomChar)
+      return passwordComponents.push(randomChar);
     }
-    return passwordComponents.push(randomChar);
   };
 
 function upperCaseChoice(){
@@ -29,8 +29,8 @@ function upperCaseChoice(){
     passwordCharSet.push(upperCase);
     var randomChar = upperCase[Math.floor(Math.random() * upperCase.length)];
       console.log(randomChar)
-      }
       return passwordComponents.push(randomChar);
+      }
     };
 
   function numberChoice(){
@@ -38,17 +38,17 @@ function upperCaseChoice(){
       passwordCharSet.push(numberList);
       var randomChar = numberList[Math.floor(Math.random() * numberList.length)];
         console.log(randomChar)
+        return passwordComponents.push(randomChar);
       }
-      return passwordComponents.push(randomChar);
     };
 
 function specialChoice(){
-    if (confirm("Should the password include numbers?")==true) {
+    if (confirm("Should the password include special characters?")==true) {
       passwordCharSet.push(specialChar);
       var randomChar = specialChar[Math.floor(Math.random() * specialChar.length)];
         console.log(randomChar)
-        }
         return passwordComponents.push(randomChar);
+        }
       };
 
   // confirm generate password
@@ -57,7 +57,10 @@ if (confirm("Would you like to generate a password?")==true){
   if (passwordLength < 8 || passwordLength > 128){
     alert("The password must be between 8 and 128 characters. Please restart the password generation process.")
   } 
-  else {alert( passwordLength + " character password requested.")}
+  else if (typeof(passwordLength) !== "number"){
+    alert("The value entered must be a number. Please restart the password generation process.")
+  }
+  else {alert(passwordLength + " character password requested.")}
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
