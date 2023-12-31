@@ -78,7 +78,7 @@ if (confirm("Would you like to generate a password?")==true){
   var additionalCharLength = (passwordLength - passwordComponents.length);
   console.log(additionalCharLength);
   function additionalChars() {
-    for (let i = 0; i < (passwordLength - passwordComponents.length); i++){
+    for (let i = 0; i = (passwordLength - passwordComponents.length); i++){
       var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
       console.log(randomChar);
       passwordComponents.push(randomChar);
@@ -86,15 +86,10 @@ if (confirm("Would you like to generate a password?")==true){
   };
   additionalChars();
 
-  //let i = 0;
-  //for(i; i <= additionalCharLength; i++){
-    //var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
-      //console.log(randomChar)
-      //return passwordComponents.push(randomChar);
-//};
   console.log(passwordComponents.toString());
-  var assembledPassword = passwordComponents.toString();
+  var assembledPassword = passwordComponents.join("");
   alert(assembledPassword);
+  return assembledPassword
 };
 //else {
  //alert("You have chosen not to create a password.")
