@@ -17,7 +17,7 @@ function generatePassword(){
 
 function lowerCaseChoice(){
   if (confirm("Should the password include lower case letters?")==true) {
-    passwordCharSet.push(lowerCase);
+    passwordCharSet.push(...lowerCase);
     var randomChar = lowerCase[Math.floor(Math.random() * lowerCase.length)];
       console.log(randomChar)
       return passwordComponents.push(randomChar);
@@ -26,7 +26,7 @@ function lowerCaseChoice(){
 
 function upperCaseChoice(){
   if (confirm("Should the password include upper case letters?")==true) {
-    passwordCharSet.push(upperCase);
+    passwordCharSet.push(...upperCase);
     var randomChar = upperCase[Math.floor(Math.random() * upperCase.length)];
       console.log(randomChar)
       return passwordComponents.push(randomChar);
@@ -35,7 +35,7 @@ function upperCaseChoice(){
 
   function numberChoice(){
     if (confirm("Should the password include numbers?")==true) {
-      passwordCharSet.push(numberList);
+      passwordCharSet.push(...numberList);
       var randomChar = numberList[Math.floor(Math.random() * numberList.length)];
         console.log(randomChar)
         return passwordComponents.push(randomChar);
@@ -44,7 +44,7 @@ function upperCaseChoice(){
 
 function specialChoice(){
     if (confirm("Should the password include special characters?")==true) {
-      passwordCharSet.push(specialChar);
+      passwordCharSet.push(...specialChar);
       var randomChar = specialChar[Math.floor(Math.random() * specialChar.length)];
         console.log(randomChar)
         return passwordComponents.push(randomChar);
@@ -52,37 +52,38 @@ function specialChoice(){
       };
 
   // Functions to assemble password
-  function additionalChars() {
-   for (let i = passwordComponents.length; i < passwordLength; i++){
-     var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
-      console.log(randomChar);
-      return passwordComponents.push(randomChar);
-    };
-  };
-  //};
 
   // confirm generate password
 if (confirm("Would you like to generate a password?")==true){
-  let passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
+  passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
   if (passwordLength < 8 || passwordLength > 128){
     alert("The password must be between 8 and 128 characters. Please restart the password generation process.");
     return null;
-  } 
+  }; 
+}
   else if (isNaN(passwordLength) == true){
     alert("The value entered must be a number. Please restart the password generation process.");
     return null;
   }
   else {
     alert(passwordLength + " character password requested.")
-  }
+  };
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
   specialChoice();
   console.log(passwordCharSet.toString());
+  console.log(passwordLength);
   console.log(passwordComponents.length);
   var additionalCharLength = (passwordLength - passwordComponents.length);
   console.log(additionalCharLength);
+  function additionalChars() {
+    for (let i = 0; i < (passwordLength - passwordComponents.length); i++){
+      var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
+      console.log(randomChar);
+      passwordComponents.push(randomChar);
+    };
+  };
   additionalChars();
 
   //let i = 0;
@@ -90,14 +91,14 @@ if (confirm("Would you like to generate a password?")==true){
     //var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
       //console.log(randomChar)
       //return passwordComponents.push(randomChar);
-};
-
+//};
+  console.log(passwordComponents.toString());
   var assembledPassword = passwordComponents.toString();
   alert(assembledPassword);
-}
-else {
- alert("You have chosen not to create a password.")
 };
+//else {
+ //alert("You have chosen not to create a password.")
+//};
 
 // Write password to the #password input
 function writePassword() {
