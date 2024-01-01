@@ -52,8 +52,16 @@ function specialChoice(){
       };
 
   // Functions to assemble password
+  function additionalChars() {
+    for (let i = 0; i = (passwordLength - passwordComponents.length); i++){
+      var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
+      console.log(randomChar);
+      passwordComponents.push(randomChar);
+    };
+  };
 
-  // confirm generate password
+
+  // Password generation process
 if (confirm("Would you like to generate a password?")==true){
   passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
   if (passwordLength < 8 || passwordLength > 128){
@@ -77,13 +85,6 @@ if (confirm("Would you like to generate a password?")==true){
   console.log(passwordComponents.length);
   var additionalCharLength = (passwordLength - passwordComponents.length);
   console.log(additionalCharLength);
-  function additionalChars() {
-    for (let i = 0; i = (passwordLength - passwordComponents.length); i++){
-      var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
-      console.log(randomChar);
-      passwordComponents.push(randomChar);
-    };
-  };
   additionalChars();
 
   console.log(passwordComponents.toString());
@@ -91,9 +92,6 @@ if (confirm("Would you like to generate a password?")==true){
   alert(assembledPassword);
   return assembledPassword
 };
-//else {
- //alert("You have chosen not to create a password.")
-//};
 
 // Write password to the #password input
 function writePassword() {
