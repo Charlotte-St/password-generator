@@ -69,13 +69,15 @@ if (confirm("Would you like to generate a password?")==true){
     return null;
   }; 
 }
-  else if (isNaN(passwordLength) == true){
-    alert("The value entered must be a number. Please restart the password generation process.");
-    return null;
-  }
-  else {
-    alert(passwordLength + " character password requested.")
-  };
+else {alert("You have chosen not to generate a password.");
+  return null;};
+  //else if (isNaN(passwordLength) == true){
+    //alert("The value entered must be a number. Please restart the password generation process.");
+    //return null;
+  //}
+  //else {
+    //alert(passwordLength + " character password requested.")
+  //};
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
@@ -89,7 +91,7 @@ if (confirm("Would you like to generate a password?")==true){
 
   console.log(passwordComponents.toString());
   var assembledPassword = passwordComponents.join("");
-  alert(assembledPassword);
+  alert("Your password: " + assembledPassword);
   return assembledPassword
 };
 
