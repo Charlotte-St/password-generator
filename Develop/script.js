@@ -1,3 +1,4 @@
+//Base file provided by Northwestern Coding Bootcamp
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -52,7 +53,7 @@ function specialChoice(){
       };
 
   // Functions to assemble password
-  function additionalChars() {
+function additionalChars() {
     for (let i = 0; i = (passwordLength - passwordComponents.length); i++){
       var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
       console.log(randomChar);
@@ -60,6 +61,13 @@ function specialChoice(){
     };
   };
 
+  function passwordMixer(passwordComponents){
+    for (let i = passwordComponents.length - 1; i > 0; i--){
+      var position = Math.floor(Math.random() * (i + 1));
+      [passwordComponents[i], passwordComponents[position]] = [passwordComponents[position], passwordComponents[i]];
+    }
+    return passwordComponents;
+  };
 
   // Password generation process
 if (confirm("Would you like to generate a password?")==true){
@@ -77,13 +85,8 @@ else {
   alert("You have chosen not to generate a password.");
   return null;
 };
-  //else if (isNaN(passwordLength) == true){
-    //alert("The value entered must be a number. Please restart the password generation process.");
-    //return null;
-  //}
-  //else {
-    //alert(passwordLength + " character password requested.")
-  //};
+
+
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
@@ -94,7 +97,7 @@ else {
   var additionalCharLength = (passwordLength - passwordComponents.length);
   console.log(additionalCharLength);
   additionalChars();
-
+  passwordMixer(passwordComponents);
   console.log(passwordComponents.toString());
   var assembledPassword = passwordComponents.join("");
   alert("Your password: " + assembledPassword);
