@@ -67,10 +67,16 @@ if (confirm("Would you like to generate a password?")==true){
   if (passwordLength < 8 || passwordLength > 128){
     alert("The password must be between 8 and 128 characters. Please restart the password generation process.");
     return null;
-  }; 
+  }
+  else if (isNaN(passwordLength) == true){
+    alert("The value entered must be a number. Please restart the password generation process.");
+    return null;
+  };
 }
-else {alert("You have chosen not to generate a password.");
-  return null;};
+else {
+  alert("You have chosen not to generate a password.");
+  return null;
+};
   //else if (isNaN(passwordLength) == true){
     //alert("The value entered must be a number. Please restart the password generation process.");
     //return null;
