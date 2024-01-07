@@ -72,7 +72,6 @@ function additionalChars() {
   };
 
   // Password generation prompts
- function userPrompts() { 
 if (confirm("Would you like to generate a password?")==true){
   passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
   if (passwordLength < 8 || passwordLength > 128){
@@ -88,24 +87,16 @@ else {
   alert("You have chosen not to generate a password.");
   return null;
 };
- };
 
- // Functions being called
-  userPrompts();
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
   specialChoice();
-  console.log(passwordCharSet.toString());
-  console.log(passwordLength);
-  console.log(passwordComponents.length);
   var additionalCharLength = (passwordLength - passwordComponents.length);
-  console.log(additionalCharLength);
   additionalChars();
   passwordMixer(passwordComponents);
-  console.log(passwordComponents.toString());
   var assembledPassword = passwordComponents.join("");
-  alert("Your password: " + assembledPassword);
+  //alert("Your password: " + assembledPassword);
   return assembledPassword
 };
 
