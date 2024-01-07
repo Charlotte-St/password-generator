@@ -3,7 +3,7 @@
 ## Description
 This password generator allows the user to select the number of characters in the password and the characters used to generate a password. Characters available are uppercase letters, lowercase letters, numbers, and special characters. The user clicks a button to start the password generation process, then navigates through several prompts to define the elements (i.e. length, characters used) of the passsword they would like to generate. When complete, the generated password displays on the page. 
 
-![Screenshot of password generator](/Develop/password-generator-screenshot.png)
+![Screenshot of password generator](/Assets/password-generator-screenshot.png)
 [Password Generator: https://charlotte-st.github.io/password-generator/](https://charlotte-st.github.io/password-generator/)
 
 ## Installation
