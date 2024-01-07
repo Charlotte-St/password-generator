@@ -5,7 +5,8 @@ var generateBtn = document.querySelector("#generate");
 //  Password generation
 
 function generatePassword(){
-  //character sets
+
+ //Character sets & password settings
   var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; 
   var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   var numberList = ['0','1','2','3','4','5','6','7','8','9'];
@@ -53,6 +54,7 @@ function specialChoice(){
       };
 
   // Functions to assemble password
+
 function additionalChars() {
     for (let i = 0; i = (passwordLength - passwordComponents.length); i++){
       var randomChar = passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
@@ -69,7 +71,8 @@ function additionalChars() {
     return passwordComponents;
   };
 
-  // Password generation process
+  // Password generation prompts
+ function userPrompts() { 
 if (confirm("Would you like to generate a password?")==true){
   passwordLength = Number((prompt("How long should the password be?\n Min: 8 characters\n Max: 128 characters")))
   if (passwordLength < 8 || passwordLength > 128){
@@ -85,8 +88,10 @@ else {
   alert("You have chosen not to generate a password.");
   return null;
 };
+ };
 
-
+ // Functions being called
+  userPrompts();
   lowerCaseChoice();
   upperCaseChoice();
   numberChoice();
